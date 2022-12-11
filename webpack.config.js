@@ -1,4 +1,6 @@
+const webpack = require("webpack");
 const path = require("path");
+
 module.exports = {
   // root of the bundle and the beginning of the dependency graph, so give it the relative path to the client's code
   entry: './assets/js/script.js',
@@ -7,6 +9,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.bundle.js'
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
+  ],
   mode: 'development'
 };
 
