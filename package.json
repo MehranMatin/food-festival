@@ -21,6 +21,7 @@
   "homepage": "https://github.com/MehranMatin/food-festival#readme",
   "devDependencies": {
     "webpack": "^5.75.0",
+    "webpack-bundle-analyzer": "^4.7.0",
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
