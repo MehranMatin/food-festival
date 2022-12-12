@@ -1,8 +1,8 @@
 const webpack = require("webpack");
-const path = require("path");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const path = require("path");
 
-module.exports = {
+const config = {
   // root of the bundle and the beginning of the dependency graph, so give it the relative path to the client's code
   entry: {
     app: "./assets/js/script.js",
@@ -12,13 +12,13 @@ module.exports = {
   },
   // output that bundled code to a folder that we specify. It is common and best practice to put your bundled code into a folder named dist, which is short for distribution
   output: {
-    filename: "[name].bundle.js",
-    path: __dirname + "/dist"
+    path: path.join(__dirname + "/dist"),
+    filename: "[name].bundle.js"
   },
   module: {
     rules: [
       {
-        test: /\.jpg$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         use : [
           {
             loader: 'file-loader',
@@ -27,7 +27,7 @@ module.exports = {
               name (file) {
                 return "[path][name].[ext]"
               },
-              publicPath: function(url) {
+              publicPath(url) {
                 return url.replace("../", "/assets/")
               }
             }
@@ -51,3 +51,4 @@ module.exports = {
   mode: 'development'
 };
 
+module.exports = config;
