@@ -221,6 +221,10 @@
 
   <script>
     // Register Service Worker
+    // immediately invoked function expression (IIFE)
+    // parenthesis around the function lets js know to proccess the funtion as a "function expression"
+    // the last pair of parenthesis after the function immediately envokes the IIFE funciton
+    // the instance the function is defined js will execute it immediately, so this function is not part of the global space
     (function () {
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
